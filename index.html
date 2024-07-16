@@ -31,7 +31,6 @@
             <output
               class="fs-700 clr-neutral-500"
               id="password-output"
-              aria-labelledby="password-label"
               aria-live="polite"
               >P4$5W0rD!</output
             >
@@ -57,12 +56,14 @@
 
           <div class="form-input-container">
             <div class="character-length-container">
-              <label for="character-length" class="character-length-label">
+              <label
+                for="character-length-output"
+                class="character-length-label"
+              >
                 Character Length
                 <output
                   class="fs-700 clr-primary-400"
                   id="character-length-output"
-                  aria-labelledby="character-length-label"
                   aria-live="polite"
                   >10</output
                 >
@@ -121,10 +122,7 @@
             <div class="strength-container">
               <p class="clr-neutral-500">Strength</p>
               <div class="strength-indicator-container">
-                <output
-                  class="strength-output | fs-500"
-                  aria-labelledby="strength-label"
-                  aria-live="polite"
+                <output class="strength-output | fs-500" aria-live="polite"
                   >Medium</output
                 >
                 <div
