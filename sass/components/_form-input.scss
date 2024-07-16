@@ -1,0 +1,205 @@
+@use "../abstracts/" as *;
+
+.form-input-container {
+  padding: $size-4;
+  background-color: $color-neutral-800;
+
+  @include mq(medium) {
+    padding: $size-6 $size-8 $size-8;
+  }
+
+  @include mq(large) {
+    padding-block-end: $size-10;
+  }
+}
+
+.character-length-container {
+  display: flex;
+  flex-direction: column;
+  gap: $size-2;
+
+  @include mq(medium) {
+    gap: $size-4;
+  }
+}
+
+.character-length-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.character-length-slider {
+  position: relative;
+  appearance: none;
+  background-color: transparent;
+  width: 100%;
+  height: $size-1;
+  z-index: 0;
+  cursor: pointer;
+  --characterLength: 50%;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: var(--characterLength);
+    height: $size-1;
+    background-color: $color-primary-400;
+  }
+
+  // Track
+  &::-webkit-slider-runnable-track {
+    appearance: none;
+    height: $size-2;
+    background: $color-neutral-900;
+  }
+  &::-moz-range-track {
+    background: $color-neutral-900;
+    height: $size-2;
+  }
+  // Filled Track
+  &::-moz-range-progress {
+    background: $color-primary-400;
+  }
+
+  // Thumb
+  &::-webkit-slider-thumb {
+    position: relative;
+    appearance: none;
+    margin-top: -10px;
+    background-color: $color-neutral-200;
+    width: 24px;
+    height: 24px;
+    border-radius: 100vh;
+    z-index: 1;
+  }
+  &::-moz-range-thumb {
+    border: none;
+    border-radius: 100vh;
+    background-color: $color-neutral-200;
+    width: 24px;
+    height: 24px;
+  }
+
+  &:hover {
+    outline: 0;
+  }
+
+  &:hover::-webkit-slider-thumb {
+    border: 2px solid $color-primary-400;
+    background-color: $color-neutral-900;
+  }
+  &:hover::-moz-range-thumb {
+    border: 2px solid $color-primary-400;
+    background-color: $color-neutral-900;
+  }
+}
+
+.checkbox-container {
+  margin-block: $size-8;
+}
+
+.checkbox-label {
+  display: grid;
+  grid-template-columns: $size-4 auto;
+  gap: $size-5;
+  width: fit-content;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  background-color: transparent;
+  margin: 0;
+  color: currentColor;
+  width: 20px;
+  height: 20px;
+  border: 2px solid $color-neutral-200;
+  display: grid;
+  place-content: center;
+
+  &:hover {
+    border-color: $color-primary-400;
+  }
+
+  &::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    border-color: $color-primary-400;
+    background-color: $color-primary-400;
+    background-image: url("/assets/images/icon-check.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    transform-origin: bottom left;
+  }
+  &:checked::before {
+    transform: scale(1);
+  }
+
+  &:focus {
+    outline: max(2px, 0.15em) solid currentColor;
+    outline-offset: 1px;
+  }
+}
+
+.strength-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: $size-4;
+  text-transform: uppercase;
+  background-color: $color-neutral-900;
+
+  @include mq(medium) {
+    padding: $size-5 $size-8;
+  }
+}
+
+.strength-indicator-container {
+  display: flex;
+  align-items: center;
+  gap: $size-4;
+}
+
+.strength-bars {
+  display: flex;
+  gap: 8.5px;
+}
+
+.too-weak {
+  span:first-child {
+    background-color: $color-accent-100;
+    border-color: $color-accent-100;
+  }
+}
+
+.weak {
+  span:is(:first-child, :nth-child(2)) {
+    background-color: $color-accent-200;
+    border-color: $color-accent-200;
+  }
+}
+
+.medium {
+  span:is(:first-child, :nth-child(2), :nth-child(3)) {
+    background-color: $color-accent-300;
+    border-color: $color-accent-300;
+  }
+}
+
+.strong {
+  span {
+    background-color: $color-primary-400;
+    border-color: $color-primary-400;
+  }
+}
+
+.strength-bar {
+  width: 10px;
+  height: 28px;
+  border: 2px solid $color-neutral-200;
+}
