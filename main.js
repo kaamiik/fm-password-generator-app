@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   checkboxes.forEach((checkbox) => {
     checkbox.checked = false;
   });
+  checkboxes[1].checked = true;
 
   const updateSlider = () => {
     const max = slider.max;
@@ -59,7 +60,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     // Ensure charset is not empty
     if (charset === "") {
-      alert("Please select at least one character type.");
+      alert("Please check at least one character type.");
+      checkboxes[1].checked = true;
       return "";
     }
 

@@ -29,6 +29,7 @@
               >Generated Password</label
             >
             <output
+              for="character-length checkbox-uppercase checkbox-lowercase checkbox-numbers checkbox-symbols"
               class="fs-700 clr-neutral-500"
               id="password-output"
               aria-live="polite"
@@ -56,21 +57,16 @@
 
           <div class="form-input-container">
             <div class="character-length-container">
-              <label
-                for="character-length-output"
-                class="character-length-label"
-              >
+              <label for="character-length" class="character-length-label">
                 Character Length
                 <output
+                  for="character-length"
                   class="fs-700 clr-primary-400"
                   id="character-length-output"
                   aria-live="polite"
                   >10</output
                 >
               </label>
-              <label class="visually-hidden" for="character-length"
-                >Character Length Slider</label
-              >
               <input
                 class="character-length-slider"
                 type="range"
@@ -88,6 +84,7 @@
               <label class="checkbox-label">
                 <input
                   class="checkbox-input"
+                  id="checkbox-uppercase"
                   type="checkbox"
                   name="include-options"
                   value="uppercase"
@@ -97,6 +94,7 @@
               <label class="checkbox-label">
                 <input
                   class="checkbox-input"
+                  id="checkbox-lowercase"
                   type="checkbox"
                   name="include-options"
                   value="lowercase"
@@ -106,6 +104,7 @@
               <label class="checkbox-label">
                 <input
                   class="checkbox-input"
+                  id="checkbox-numbers"
                   type="checkbox"
                   name="include-options"
                   value="numbers"
@@ -115,6 +114,7 @@
               <label class="checkbox-label">
                 <input
                   class="checkbox-input"
+                  id="checkbox-symbols"
                   type="checkbox"
                   name="include-options"
                   value="symbols"
@@ -125,7 +125,10 @@
             <div class="strength-container">
               <p class="clr-neutral-500">Strength</p>
               <div class="strength-indicator-container">
-                <output class="strength-output | fs-500" aria-live="polite"
+                <output
+                  for="character-length checkbox-uppercase checkbox-lowercase checkbox-numbers checkbox-symbols"
+                  class="strength-output | fs-500"
+                  aria-live="polite"
                   >Medium</output
                 >
                 <div
